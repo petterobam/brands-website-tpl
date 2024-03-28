@@ -25,14 +25,14 @@
               <div>{{ f.title }}</div>
               {% if f.tags %}
               {% for tag in f.tags %}
-                <span style="padding: 2px 6px; font-size: 10px;margin: 5px;border: 1px solid #3d4046;">{{ tag }}</span>
+                <span style="padding: 2px 6px; font-size: 10px;margin: 5px;border: 1px solid green;">{{ tag }}</span>
               {% endfor %}
               {% endif %}
             </h2>
           {% endif %}
           
           {% if f.excerpt %}
-            <div class="archive__item-excerpt">
+            <div class="archive__item-excerpt" style="text-align: center;">
               {{ f.excerpt | markdownify }}
             </div>
           {% endif %}
