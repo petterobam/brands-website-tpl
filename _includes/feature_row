@@ -21,7 +21,13 @@
 
         <div class="archive__item-body">
           {% if f.title %}
-            <h2 class="archive__item-title">{{ f.title }}</h2>
+            <h2 class="archive__item-title" style="text-align: center;">{{ f.title }}</h2>
+          {% endif %}
+
+          {% if f.tags %}
+          {% for tag in f.tags %}
+            <span style="padding: 5px 10px;margin: 0 5px;border: 1px solid #3d4046;">{{ tag }}</span>
+          {% endfor %}
           {% endif %}
 
           {% if f.excerpt %}
@@ -31,7 +37,9 @@
           {% endif %}
 
           {% if f.url %}
-            <p><a href="{{ f.url | relative_url }}" class="btn {{ f.btn_class }}">{{ f.btn_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
+            <p style="text-align: center;">
+              <a href="{{ f.url | relative_url }}" class="btn {{ f.btn_class }}">{{ f.btn_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a>
+            </p>
           {% endif %}
         </div>
       </div>
