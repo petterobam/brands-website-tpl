@@ -21,15 +21,16 @@
 
         <div class="archive__item-body">
           {% if f.title %}
-            <h2 class="archive__item-title" style="text-align: center;">{{ f.title }}</h2>
+            <h2 class="archive__item-title" style="text-align: center;">
+              <div>{{ f.title }}</div>
+              {% if f.tags %}
+              {% for tag in f.tags %}
+                <span style="padding: 2px 6px; font-size: 10px;margin: 5px;border: 1px solid #3d4046;">{{ tag }}</span>
+              {% endfor %}
+              {% endif %}
+            </h2>
           {% endif %}
-
-          {% if f.tags %}
-          {% for tag in f.tags %}
-            <span style="padding: 2px 6px; font-size: 10px;margin: 5px;border: 1px solid #3d4046;">{{ tag }}</span>
-          {% endfor %}
-          {% endif %}
-
+          
           {% if f.excerpt %}
             <div class="archive__item-excerpt">
               {{ f.excerpt | markdownify }}
